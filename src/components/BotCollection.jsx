@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import BotList from './BotList'
 
+
 function BotCollection({bots}) {
     const [isVisible, setIsVisible] = useState(false)
 
@@ -16,6 +17,7 @@ function BotCollection({bots}) {
         
         ))}
         </ul>
+        
     </div>
   )
 }

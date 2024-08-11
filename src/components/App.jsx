@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../App.css'
 import Header from './Header'
 import BotCollection from './BotCollection'
+import YourBot from './YourBot'
 
 
 function App() {
@@ -17,7 +18,13 @@ function App() {
   return (
     <div>
     <Header />
+    <div className='together'>
+    
+    <div className='bot-container'>
     <BotCollection bots={bots}/>
+    <YourBot />
+    </div>
+   </div>
     </div>
   )
 }
