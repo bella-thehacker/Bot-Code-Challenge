@@ -13,7 +13,7 @@ function App() {
   const [selectedBot, setSelectedBot] = useState(null)
 
   useEffect(() => {
-    fetch("http://localhost:3000/bots")
+    fetch("https://bot-battlr-code-challenge-eight.vercel.app/bots")
       .then((res) => res.json())
       .then((bots) => setBots(bots))
       .catch((error) => console.log(error));
@@ -33,7 +33,7 @@ function App() {
   const deleteBot = (bot) => {
     setBots(yourBots.filter(b => b.id !== bot.id))
 
-    fetch(`http://localhost:3000/bots/${bot.id}`, {
+    fetch(`https://bot-battlr-code-challenge-eight.vercel.app/bots/${bot.id}`, {
       method: "DELETE"
     })
     .then(res => {
