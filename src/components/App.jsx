@@ -3,6 +3,7 @@ import "../App.css";
 import Header from "./Header";
 import BotCollection from "./BotCollection";
 import YourBot from "./YourBot";
+import { error } from "server/router";
 
 function App() {
   const [bots, setBots] = useState([]);
@@ -21,8 +22,19 @@ function App() {
     }
   }
 
-  const dischargeBot = (bot) => {
-    setYourBots(yourBots.filter((b) => b.id !== bot.id));
+  const deleteBot = (bot) => {
+    setBots(yourBots.filter(b => b.id !== bot.id))
+
+    fetch(`http://localhost:3000/bots/${bot.id}`, {
+      method: "DELETE"
+    })
+    .then(res => {
+      if(!res.ok){
+        throw new Error('Network response was not okay')
+      }
+      setBots(bots.filter(b => b.id !== bot.id))
+    })
+    .catch(error => console.error("Problem with delete request", error ))
   };
 
   const removeBot = (bot) => {
@@ -34,7 +46,7 @@ function App() {
       <Header />
       <div className="together">
         <div className="bot-container">
-          <BotCollection bots={bots}  addBot={addBot} dischargeBot={dischargeBot}/>
+          <BotCollection bots={bots}  addBot={addBot} deleteBot={deleteBot}/>
          
         </div>
         <YourBot yourBots={yourBots} removeBot={removeBot} />
