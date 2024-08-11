@@ -8,14 +8,14 @@ function DisplayBot({trigger, setTrigger, bot}) {
         {bot && (
           <div>
             <img src={bot.avatar_url} alt={bot.name}></img>
-            <h3>{bot.name}</h3>
-            <p>Bot Health:{bot.health}</p>
-            <p>Bot Damage:{bot.damage}</p>
-            <p>Bot Armor:{bot.armor}</p>
-            <p>Bot Class:{bot.bot_class}</p>
-            <p>Bot Catchphrase:{bot.catchphrase}</p>
-            <p>Bot Creation:{bot.created_at}</p>
-            <p>Bot Update:{bot.updated_at}</p>
+            <h1>{bot.name}</h1>
+            <p>Bot Health :<strong>{bot.health}</strong></p>
+            <p>Bot Damage :<strong>{bot.damage}</strong></p>
+            <p>Bot Armor :<strong>{bot.armor}</strong></p>
+            <p>Bot Class :<strong>{bot.bot_class}</strong></p>
+            <p>Bot Catchphrase :<strong>{bot.catchphrase}</strong></p>
+            <p>Bot Creation :<strong>{bot.created_at}</strong></p>
+            <p>Bot Update :<strong>{bot.updated_at}</strong></p>
             </div>
         )}
         

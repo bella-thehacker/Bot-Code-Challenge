@@ -7,7 +7,7 @@ function YourBot({ yourBots, removeBot }) {
       <ul>
         {yourBots.map((bot) => (
           <li key={bot.id}>
-            <span> Your Bot is:{bot.name}</span>
+            <span> Your Bot is: <strong className="your-bot-name">{bot.name} </strong></span>
             <button onClick={() => removeBot(bot)} className="button-87">
               Remove Bot
             </button>

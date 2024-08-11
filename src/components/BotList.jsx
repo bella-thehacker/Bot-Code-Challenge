@@ -13,7 +13,7 @@ function BotList({ bot, addBot, deleteBot, handleListClick }) {
   }
   return (
     <li onClick={() => handleListClick(bot)} className="each-bot">
-      <span className="bot-name">Bot Name: {bot.name}</span>
+      <span className="bot-name">Bot Name: <strong className="name">{bot.name} </strong> </span>
       <span>
         <button onClick={handleClick} className="button-87" 
          disabled={isAdded}>
@@ -25,6 +25,7 @@ function BotList({ bot, addBot, deleteBot, handleListClick }) {
           Discharge
         </button>
       </span>
+      <span className="bot-name"><em>Select to see bot properties</em></span>
     </li>
   );
 }
