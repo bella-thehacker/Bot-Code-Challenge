@@ -10,6 +10,7 @@ function App() {
   const [bots, setBots] = useState([]);
   const [yourBots, setYourBots] = useState([]);
   const [popUp, setPopup] = useState(false)
+  const [selectedBot, setSelectedBot] = useState(null)
 
   useEffect(() => {
     fetch("http://localhost:3000/bots")
@@ -17,6 +18,11 @@ function App() {
       .then((bots) => setBots(bots))
       .catch((error) => console.log(error));
   }, []);
+
+  const handleListClick = (bot) => {
+    setSelectedBot(bot)
+    setPopup(true)
+  }
 
   function addBot(bot) {
     if (!yourBots.includes(bot)) {
@@ -46,13 +52,13 @@ function App() {
   return (
     <div>
       <Header />
-      <DisplayBot trigger={popUp} setTrigger={setPopup} bots={bots}>
+      <DisplayBot trigger={popUp} setTrigger={setPopup} bot={selectedBot}>
             <h3>This Bot:</h3>
           </DisplayBot>
       <div className="together">
         <div className="bot-container">
           
-          <BotCollection bots={bots}  addBot={addBot} deleteBot={deleteBot} setPopup={setPopup}/>
+          <BotCollection bots={bots}  addBot={addBot} deleteBot={deleteBot} handleListClick={handleListClick}/>
          
         </div>
         <YourBot yourBots={yourBots} removeBot={removeBot} />
