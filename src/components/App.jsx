@@ -3,11 +3,13 @@ import "../App.css";
 import Header from "./Header";
 import BotCollection from "./BotCollection";
 import YourBot from "./YourBot";
-import { error } from "server/router";
+import DisplayBot from "./DisplayBot";
+
 
 function App() {
   const [bots, setBots] = useState([]);
   const [yourBots, setYourBots] = useState([]);
+  const [popUp, setPopup] = useState(false)
 
   useEffect(() => {
     fetch("http://localhost:3000/bots")
@@ -44,9 +46,13 @@ function App() {
   return (
     <div>
       <Header />
+      <DisplayBot trigger={popUp} setTrigger={setPopup} bots={bots}>
+            <h3>This Bot:</h3>
+          </DisplayBot>
       <div className="together">
         <div className="bot-container">
-          <BotCollection bots={bots}  addBot={addBot} deleteBot={deleteBot}/>
+          
+          <BotCollection bots={bots}  addBot={addBot} deleteBot={deleteBot} setPopup={setPopup}/>
          
         </div>
         <YourBot yourBots={yourBots} removeBot={removeBot} />

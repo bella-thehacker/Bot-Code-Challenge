@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BotList from "./BotList";
 
-function BotCollection({ bots, addBot, deleteBot }) {
+function BotCollection({ bots, addBot, deleteBot, setPopup }) {
   const [isVisible, setIsVisible] = useState(false);
 
   function toggle() {
@@ -19,6 +19,7 @@ function BotCollection({ bots, addBot, deleteBot }) {
             bot={bot}
             addBot={addBot}
             deleteBot={deleteBot}
+            setPopup={setPopup}
           />
         ))}
       </ul>

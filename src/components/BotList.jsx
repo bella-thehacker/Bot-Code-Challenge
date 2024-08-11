@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BotList({ bot, addBot, deleteBot }) {
+function BotList({ bot, addBot, deleteBot, setPopup }) {
   const [isAdded, setIsAdded] = useState(false);
 
   function added() {
@@ -12,7 +12,7 @@ function BotList({ bot, addBot, deleteBot }) {
     added();
   }
   return (
-    <li className="each-bot">
+    <li onClick={() => setPopup(true)} className="each-bot">
       <span className="bot-name">Bot Name: {bot.name}</span>
       <span>
         <button onClick={handleClick} className="button-87" 
