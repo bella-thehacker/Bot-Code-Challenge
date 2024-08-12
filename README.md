@@ -320,24 +320,34 @@ This component is a popup modal that displays detailed information about a selec
 ```js
 import React from "react";
 
-function DisplayBot(props) {
-  return (props.trigger) ? (
+function DisplayBot({trigger, setTrigger, bot}) {
+  return trigger ? (
     <div className="pop-up">
       <div className="popup-inner">
-        <button onClick={() => props.setTrigger(false)} className="close-popup">Close</button>
-        <h3>{props.bot.name}</h3>
-        <img src={props.bot.image} alt={props.bot.name} />
-        <p>Health: {props.bot.health}</p>
-        <p>Armor: {props.bot.armor}</p>
-        <p>Damage: {props.bot.damage}</p>
-        <p>Class: {props.bot.class}</p>
-        <p>Speed: {props.bot.speed}</p>
-        <p>Catchphrase: {props.bot.catchphrase}</p>
-        {props.children}
+        <button onClick={() => setTrigger(false)} className="button-87">close</button>
+        {bot && (
+          <div>
+            <img src={bot.avatar_url} alt={bot.name}></img>
+            <h1>{bot.name}</h1>
+            <p>Bot Health :<strong>{bot.health}</strong></p>
+            <p>Bot Damage :<strong>{bot.damage}</strong></p>
+            <p>Bot Armor :<strong>{bot.armor}</strong></p>
+            <p>Bot Class :<strong>{bot.bot_class}</strong></p>
+            <p>Bot Catchphrase :<strong>{bot.catchphrase}</strong></p>
+            <p>Bot Creation :<strong>{bot.created_at}</strong></p>
+            <p>Bot Update :<strong>{bot.updated_at}</strong></p>
+            </div>
+        )}
+        
+        
       </div>
     </div>
-  ) : "";
+  ) : null;
+    
+  
 }
+
+export default DisplayBot;
 
 export default DisplayBot;
 ```
