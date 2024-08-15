@@ -3,7 +3,7 @@ This is a program that enables the user to make their own bot army from a list o
 
 **Here is the live link** https://bot-code-challenge-seven.vercel.app/
 
-Requirements
+## Requirements
 For this project, you must:
 
 Have a well-written README file.
