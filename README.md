@@ -1,7 +1,7 @@
 # BOT BATTLR
 This is a program that enables the user to make their own bot army from a list of robots.
 
-**Here is the live link** https://bot-code-challenge-seven.vercel.app/
+**Here is the live link** https://bot-code-challenge-whw6.vercel.app/
 
 ## Requirements
 For this project, you must:
